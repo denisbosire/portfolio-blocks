@@ -1,0 +1,25 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+ #accordion-section-adri_style_view_pro {
+ 	display: none !important;
+ }
+
+.wp-list-table .column-img img {
+ 	width: 60px;
+ 	height: 60px;
+ 	border-radius: 5px;
+ }
+
+  #customize-theme-controls .upsellsection,
+ #customize-theme-controls #accordion-section-aqua_portfolio_style_view_pro,
+ #customize-theme-controls #accordion-section-adri_portfolio_style_view_pro,
+ #customize-theme-controls  #accordion-section-pixx_style_view_pro,
+ #customize-theme-controls #accordion-section-x_portfolio_style_view_pro,
+ #customize-theme-controls #accordion-section-aperture_portfoliostyle_view_pro,
+ #customize-theme-controls #accordion-section-gusto_style_view_pro,
+ #customize-theme-controls #accordion-section-millo_style_view_pro {
+    border: none;
+    display: none !important;
+}

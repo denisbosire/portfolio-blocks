@@ -1,0 +1,8 @@
+== JULY 3, 2019 ==
+* Added AJAX loadmore
+== MAY 6, 2019 ==
+* Added one click import
+* Added TGM for demo import
+ 
+== MAY 3, 2019 ==
+* Removed update notice on plugin activation

@@ -1,0 +1,87 @@
+.editor-styles-wrapper {
+    .wp-block {
+        h2 {
+            margin: 0;
+            line-height: 10px;
+            a {
+                @include font-size(1.1rem);
+                letter-spacing: normal;
+                text-transform: capitalize;
+            }
+        }
+        span {
+            font-size: 13px;
+            text-transform: capitalize;
+        }
+    }
+}
+#filters {
+    list-style: none;
+    li {
+        a {
+            text-decoration: none;
+            color: #000;
+            @include font-size(1.2rem);
+        }
+    }
+    li.selected {
+        border-bottom: 1px solid;
+    }
+}
+
+
+.components-panel {
+    .__row {
+        justify-content: left;
+        align-items: normal;
+
+     }
+    .__settings-button {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        height: auto;
+        padding: 10px;
+        margin: 0;
+        color: #636569;
+        background: #f7f7f7 !important;
+        border: 1px solid #f7f7f7;
+        border-radius: 5px;
+        outline: none;
+        margin: 1px;
+        flex: 1 1 33%;
+        max-width: 32%;
+        svg {
+            width: 100%;
+            max-width: 20px;
+            height: auto;
+            color: #000;
+            margin: 0 auto !important;
+        }
+        span {
+            margin-top: auto;
+            font-size: .73em;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+    }
+    .is-pressed {
+        border: 2px solid;
+    }
+    .__settings-row {
+        justify-content: left;
+        align-items: normal;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+     }
+}
+
+.block-editor-block-inspector {
+
+    .components-base-control {
+        width: 100%;
+    }
+}

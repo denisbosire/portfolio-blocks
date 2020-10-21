@@ -1,12 +1,12 @@
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
 import { InspectorControls } from '@wordpress/editor';
-import { PanelBody, Button, PanelRow, RangeControl, ToggleControl, RadioControl } from '@wordpress/components';
+import { PanelBody, Button, PanelRow, RangeControl, ToggleControl, RadioControl, SelectControl } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 import icons from '../assets/icons/icons';
+const { BlockControls, AlignmentToolbar } = wp.blocks; // Import registerBlockType() from wp.blocks
 
 class EditPortfolio extends Component {
-
 	constructor() {
 		super( ...arguments );
 		this.state = {
@@ -28,8 +28,8 @@ class EditPortfolio extends Component {
 	}
 
 	render() {
-		const { attributes, setAttributes } = this.props;
-		const { columns, layout, filter, category, gutter, borderRadius, overlay } = attributes;
+		const { attributes, setAttributes, className } = this.props;
+		const { columns, layout, filter, category, gutter, borderRadius, overlay, filterAlignment } = attributes;
 		const { isPressed, isPressed2, handleButtonClicked } = this.state;
 
 		const onChangeColumn = ( columns ) => {
@@ -54,9 +54,9 @@ class EditPortfolio extends Component {
 			setAttributes( { borderRadius: borderRadius } );
 		};
 
-		const onChangeAlignment = ( updatedAlignment ) => {
-			setAttributes( { alignment: updatedAlignment } );
-		};
+		// const onChangeAlignment = ( updatedAlignment ) => {
+		// 	setAttributes( { alignment: updatedAlignment } );
+		// };
 
 		const tileLayouts = ( layout ) => {
 			setAttributes( { layout: 'tiles' } );
@@ -68,9 +68,11 @@ class EditPortfolio extends Component {
 			this.setState( { isPressed: false } );
 			this.setState( { isPressed2: true } );
 		};
+		const onChangeFilterAlignment = ( updatedFilterAlignment ) => {
+			setAttributes( { filterAlignment: updatedFilterAlignment } );
+		};
 		return (
 			<fragment>
-
 				<InspectorControls>
 
 					<PanelBody title="Layout Settings" initialOpen={ true }>
@@ -108,9 +110,9 @@ class EditPortfolio extends Component {
 					<PanelBody title="Design" initialOpen={ true }>
 						<PanelRow className="__settings-row">
 
-							<RadioControl
+							<SelectControl
 								label={ __( 'Title & Category Display', 'blox-portfolio' ) }
-								selected={ overlay }
+								value={ overlay }
 								options={ [
 									{ label: 'On Hover', value: 'hover' },
 									{ label: 'Modern', value: 'modern' },
@@ -150,17 +152,30 @@ class EditPortfolio extends Component {
 							checked={ filter }
 							onChange={ onChangeFilter }
 						/>
+						{ filter &&
+							<SelectControl
+								label={ __( 'Filter Alignment', 'blox-portfolio' ) }
+								value={ filterAlignment }
+								options={ [
+									{ label: 'Left', value: 'left' },
+									{ label: 'Center', value: 'center' },
+									{ label: 'Right', value: 'flex-end' },
+								] }
+								onChange={ onChangeFilterAlignment }
+							/>
+						}
 					</PanelBody>
 
 				</InspectorControls>
 				{ document.dispatchEvent( this.customEvent ) }
-				<ServerSideRender
+				<div className={ className }>
+					<ServerSideRender
 
-					block="blox/portfolio-block"
-					attributes={ attributes }
-					//block="core/archives" attributes={ attributes }
-				/>
-
+						block="blox/portfolio-block"
+						attributes={ attributes }
+						//block="core/archives" attributes={ attributes }
+					/>
+				</div>
 			</fragment>
 		);
 	}

@@ -97,23 +97,27 @@ function portfolio_block_cgb_block_assets() { // phpcs:ignore
 			'type' => 'string',
 			'default' => 'wide',
 		),
+		'filterAlignment' => array(
+			'type' => 'string',
+			'default' => 'left',
+		),
 		'align' => array(
 			'type' => 'string',
 			'default' => 'wide',
 		),
 		'columns'      => array(
 			'type' => 'number',
-			'default' => '3',
+			'default' => 3,
 		
 		),
 		'gutter'      => array(
 			'type' => 'number',
-			'default' => '0',
+			'default' => 0,
 		
 		),
 		'borderRadius'      => array(
 			'type' => 'number',
-			'default' => '0',
+			'default' => 0,
 		
 		),
 		'className' => array(
@@ -175,6 +179,7 @@ function portfolio_block( $attributes ) {
 	$gutters = $attributes['gutter'];
 	$alignment = $attributes['alignment'];
 	$borderRadius = $attributes['borderRadius'];
+	$filterAlignment = $attributes['filterAlignment'];
 
 	//set the columns
 	if ($columns == '1') {
@@ -226,7 +231,7 @@ function portfolio_block( $attributes ) {
 		
 			if (is_array($tax_terms) || is_object($tax_terms)):
 			echo "<div class='container-fluid no-gutters'>";
-				echo "<ul class='row no-gutters' id='filters'>";
+				echo "<ul class='row no-gutters' id='filters' style='justify-content:".$filterAlignment."'>";
 					echo '<li id="filter--all" class="filter selected" data-filter="*"><a href="#">'.esc_html( 'All', 'understrap-portfolio' ) .'</a></li>';
 						foreach ( $tax_terms as $tax_term ) {
 							echo '<li class="filter" data-filter=".'. esc_attr( $tax_term->slug ) .'"><a href="#">' . esc_html ( $tax_term->name ).'</a></li>';

@@ -92,7 +92,7 @@ class Pro_Portfolio_Functions {
 			"query_var" => true,
 			"rewrite" => array( 'slug' => 'project-type', 'with_front' => true, ),
 			"show_admin_column" => true,
-			"show_in_rest" => false,
+			"show_in_rest" => true,
 			"rest_base" => "project-type",
 			"show_in_quick_edit" => false,
 	);

@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: portfolio-block
- * Plugin URI: 
+ * Plugin URI: https://thepixeltribe.com
  * Description: Gutenberg Portfolio blocks
  * Author: fortisthemes
  * Author URI: https://thepixeltribe.com
- * Version: 1.0.0
+ * Version: 1.0.1
  * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  *

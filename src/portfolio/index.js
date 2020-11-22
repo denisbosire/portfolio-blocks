@@ -4,9 +4,6 @@
  * Registering a basic block with Gutenberg.
  * Simple block, renders and saves the same content without any interactivity.
  */
-import '../library/isotope.js';
-import '../library/portfolio.js';
-
 //  Import CSS.
 import './editor.scss';
 import './style.scss';

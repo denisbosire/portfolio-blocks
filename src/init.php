@@ -56,7 +56,7 @@ function portfolio_block_cgb_block_assets() { // phpcs:ignore
 		'portfolio-custom-scripts',
 		plugins_url( 'src/library/portfolio.js',
 		dirname( __FILE__ ) ), 
-		array( 'jquery')
+		array( 'jquery','imagesLoaded')
 	);
 
 	// WP Localized globals. Use dynamic PHP stuff in JavaScript via `cgbGlobal` object.

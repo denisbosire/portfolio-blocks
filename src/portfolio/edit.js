@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
 import { InspectorControls } from '@wordpress/editor';
-import { PanelBody, Button, PanelRow, RangeControl, ToggleControl, RadioControl, SelectControl } from '@wordpress/components';
+import { PanelBody, Button, PanelRow, RangeControl, ToggleControl, Disabled, SelectControl } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 import icons from '../assets/icons/icons';
 const { BlockControls, AlignmentToolbar } = wp.blocks; // Import registerBlockType() from wp.blocks
@@ -169,12 +169,14 @@ class EditPortfolio extends Component {
 				</InspectorControls>
 				{ document.dispatchEvent( this.customEvent ) }
 				<div className={ className }>
-					<ServerSideRender
+					<Disabled>
+						<ServerSideRender
 
-						block="blox/portfolio-block"
-						attributes={ attributes }
-						//block="core/archives" attributes={ attributes }
-					/>
+							block="blox/portfolio-block"
+							attributes={ attributes }
+							//block="core/archives" attributes={ attributes }
+						/>
+					</Disabled>
 				</div>
 			</fragment>
 		);

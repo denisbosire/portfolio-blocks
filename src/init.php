@@ -56,7 +56,7 @@ function portfolio_block_cgb_block_assets() { // phpcs:ignore
 		'portfolio-custom-scripts',
 		plugins_url( 'src/library/portfolio.js',
 		dirname( __FILE__ ) ), 
-		array( 'jquery','imagesLoaded')
+		array( 'jquery','masonry','imagesLoaded')
 	);
 
 	// WP Localized globals. Use dynamic PHP stuff in JavaScript via `cgbGlobal` object.
@@ -156,13 +156,13 @@ function portfolio_custom_assets() {
 	wp_enqueue_script('imagesLoaded');
 	wp_enqueue_script('masonry');
 	wp_enqueue_script('isotope',plugins_url( 'src/library/isotope.js', dirname( __FILE__ ) ), array());
-	// //Load custom scripts
-	// wp_enqueue_script(
-	// 	'portfolio-custom-scripts',
-	// 	plugins_url( 'src/library/portfolio.js',
-	// 	dirname( __FILE__ ) ), 
-	// 	array( 'jquery')
-	// );
+	//Load custom scripts
+	wp_enqueue_script(
+		'portfolio-custom-scripts',
+		plugins_url( 'src/library/portfolio.js',
+		dirname( __FILE__ ) ), 
+		array( 'jquery','masonry','imagesLoaded')
+	);
 
 }
 add_action( 'enqueue_block_assets', 'portfolio_custom_assets' );
